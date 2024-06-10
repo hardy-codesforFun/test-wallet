@@ -23,4 +23,19 @@ document.getElementById('generate-keypair').addEventListener('click', function (
       document.getElementById('funding-status').textContent = `Error: ${error.message}`;
     }
   });
+  const server = new StellarSdk.Server('https://horizon-testnet.stellar.org');
+
+document.getElementById('fetch-balance').addEventListener('click', async function () {
+    const publicKey = document.getElementById('public-key').textContent;
+
+    try {
+        const account = await server.loadAccount(publicKey);
+        
+        const balance = account.balances.find(balance => balance.asset_type === 'native').balance;
+        document.querySelector('.dets').innerHTML=account.balances[0].asset_code;
+        document.getElementById('balance').textContent = `Balance: ${balance} XLM`;
+    } catch (error) {
+        document.getElementById('balance').textContent = `Error: ${error.message}`;
+    }
+});
   

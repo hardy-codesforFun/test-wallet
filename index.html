@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Stellar Account Creation</title>
+</head>
+<body>
+  <h1>Stellar Account Creation</h1>
+  <button id="generate-keypair">Generate Key Pair</button>
+  <div id="keypair" style="display: none;">
+    <p><strong>Public Key:</strong> <span id="public-key"></span></p>
+    <p><strong>Secret Key:</strong> <span id="secret-key"></span></p>
+    <button id="fund-account">Fund Account</button>
+  </div>
+  <div id="funding-status" style="display: none;">
+    <p>Funding account...</p>
+  </div>
+  <div id="funding-result" style="display: none;">
+    <p>Account funded successfully!</p>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/stellar-sdk/10.1.1/stellar-sdk.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
